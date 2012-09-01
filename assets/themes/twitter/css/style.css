@@ -151,7 +151,7 @@ html, body {
 
 .navbar ul li {
   float: left;
-  color: #7c7c7c;
+  color: #2c2c2c;
   padding: 0 30px;
   cursor: pointer;
   text-align: center;
@@ -166,7 +166,7 @@ html, body {
 .navbar ul li:hover {
   padding: 0 31px 0 29px;
   border-color: #2c2c2c;
-  color: #2c2c2c;
+  color: #7c7c7c;
   font-weight: bolder;
   -webkit-text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.6);
      -moz-text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.6);
