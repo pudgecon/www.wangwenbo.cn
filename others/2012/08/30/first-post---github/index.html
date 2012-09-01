@@ -16,6 +16,10 @@
     <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
+    <script src="/assets/javascripts/jquery-1.7.2.min.js"></script>
+    <script src="/assets/javascripts/back-to-top.js"></script>
+    <script src="/assets/javascripts/search.js"></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -27,8 +31,8 @@
 
   <body>
     <div class="searchbar box-shadow">
-      <div class="search-btn">SEARCH</div>
-      <div class="search-text"><input type="text" placeHolder="Search..." /></div>
+      <div class="search-btn"><a href="" target="_blank" id="search-btn">SEARCH</a></div>
+      <div class="search-text"><input id="search-text" type="text" placeHolder="Search..." /></div>
       <div class="clear"> </div>
     </div>
 
@@ -37,59 +41,6 @@
         <a class="brand" href="/">Pudgecon</a>
       </div>
       <ul>
-        <!---->
-        <!---->
-        <!--
-
-
-  
-    
-      
-      	
-      	<li><a href="/categories.html">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive.html">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages.html">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/tags.html">Tags</a></li>
-      	
-      
-    
-  
-
-
--->
         <li><a href="/index.html"><h3>首页</h3><p>Home</p></a></li>
         <li><a href="/categories.html"><h3>分类</h3><p>Categories</p></a></li>
         <li><a href="/tags.html"><h3>标签</h3><p>Tags</p></a></li>
@@ -112,7 +63,7 @@
 
 <p>这个过程碰到许多问题，在此写下来与大家分享。</p>
 
-<h2 id='id1'>首先注册域名的过程</h2>
+<h2 id='id16'>首先注册域名的过程</h2>
 
 <p>这个过程相对简单，<a href='http://www.net.cn'>中国万网</a>的姓名域名8元/年，其实不算贵，买多少年随意。</p>
 
@@ -147,7 +98,7 @@ dns22.hichina.com</code></pre>
 
 <p>DNS设置好后，需要一点时间才能生效，但是不用万网说的48小时这么多。</p>
 
-<h2 id='id2'>设置域名解析</h2>
+<h2 id='id17'>设置域名解析</h2>
 
 <p>万网的<code>域名管理</code>里有<code>域名解析</code>的功能，选择好域名后，点击域名解析。如果你提交的资料审核通过后，就可以进行域名解析。</p>
 
@@ -173,7 +124,7 @@ IP地址：207.97.227.245</code></pre>
 
 <p>以上两种方式，我都经过测试，都可以成功，当然，CNAME文件中的内容要与<code>记录名（RR）</code>相同。</p>
 
-<h3 id='id3'>现在问题来了</h3>
+<h3 id='id18'>现在问题来了</h3>
 
 <p>完成到这里我觉得已经完成了我的域名绑定了。但是实际上，当我访问我的域名(www.王文波.中国)的时候，并不能跳转到我的博客主页，而是跳到了Github的<a href='http://207.97.227.245'>404页面</a>。</p>
 
@@ -266,6 +217,9 @@ IP地址：207.97.227.245</code></pre>
         </p>
       </footer>
     </div> <!-- /container -->
+
+    <!-- back to top div -->
+    <div id="toTop" class="back-to-top">^ Back to Top</div>
 
     
   </body>

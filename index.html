@@ -16,6 +16,10 @@
     <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
+    <script src="/assets/javascripts/jquery-1.7.2.min.js"></script>
+    <script src="/assets/javascripts/back-to-top.js"></script>
+    <script src="/assets/javascripts/search.js"></script>
+
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -27,8 +31,8 @@
 
   <body>
     <div class="searchbar box-shadow">
-      <div class="search-btn">SEARCH</div>
-      <div class="search-text"><input type="text" placeHolder="Search..." /></div>
+      <div class="search-btn"><a href="" target="_blank" id="search-btn">SEARCH</a></div>
+      <div class="search-text"><input id="search-text" type="text" placeHolder="Search..." /></div>
       <div class="clear"> </div>
     </div>
 
@@ -37,59 +41,6 @@
         <a class="brand" href="/">Pudgecon</a>
       </div>
       <ul>
-        <!---->
-        <!---->
-        <!--
-
-
-  
-    
-      
-      	
-      	<li><a href="/categories.html">Categories</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/archive.html">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/pages.html">Pages</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/tags.html">Tags</a></li>
-      	
-      
-    
-  
-
-
--->
         <li><a href="/index.html"><h3>首页</h3><p>Home</p></a></li>
         <li><a href="/categories.html"><h3>分类</h3><p>Categories</p></a></li>
         <li><a href="/tags.html"><h3>标签</h3><p>Tags</p></a></li>
@@ -185,11 +136,11 @@
   </div>
   <div class="tags box-shadow border-radius">
     <div class="header">标签 TAGS</div>
-    <div class="body"><a style='font-size: NaN%' href='/tags.html#blog-ref'>blog</a>
+    <div class="body"><a style='font-size: NaN%' href='/tags.html#中文域名-ref'>中文域名</a>
+<a style='font-size: NaN%' href='/tags.html#domain-ref'>domain</a>
+<a style='font-size: NaN%' href='/tags.html#blog-ref'>blog</a>
 <a style='font-size: NaN%' href='/tags.html#github-ref'>github</a>
 <a style='font-size: NaN%' href='/tags.html#博客-ref'>博客</a>
-<a style='font-size: NaN%' href='/tags.html#domain-ref'>domain</a>
-<a style='font-size: NaN%' href='/tags.html#中文域名-ref'>中文域名</a>
 </div>
   </div>
 </div>
@@ -205,6 +156,9 @@
         </p>
       </footer>
     </div> <!-- /container -->
+
+    <!-- back to top div -->
+    <div id="toTop" class="back-to-top">^ Back to Top</div>
 
     
   </body>
