@@ -65,7 +65,7 @@
 
 <p>但是，本地运行的好好的插件，上传到Github上之后，会发现出现了plugin不起作用，或者直接就报错了。原因是因为<strong><em>Github默认不允许使用外部插件（GitHub doesn&#8217;t allow Jekyll plugins）</em></strong>。</p>
 
-<p>本文提到的解决方案主要是参考<a href='http://charliepark.org/jekyll-with-plugins/'>这篇博文</a>改的。因为有些地方不一样，因此我再贴出来。</p>
+<p>本文提到的解决方案主要是参考charliepark的<a href='http://charliepark.org/jekyll-with-plugins/'>这篇博文</a>改的。因为有些地方不一样，因此我再贴出来。</p>
 
 <p>方案的主要思想就是维护两个文件夹，一个放博客的项目文件，包括包括的jekyll模板文件，plugins文件，markdown文件，以及<code>_site</code>文件夹。_site文件夹下是存放jekyll为我们生成的整个网站的静态页面，同时在.gitignore中将_site整个文件夹ignore掉了。因此，这个文件夹是不会上传到我们的github上的repository的。</p>
 
