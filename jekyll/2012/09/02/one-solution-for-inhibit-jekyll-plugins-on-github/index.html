@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>关于github禁止使用jekyll插件的一个解决方案</title>
+    <meta name="description" content="one solution for inhibit jekyll plugins on github. 关于github禁止使用jekyll插件的一个解决方案">
+    <meta name="author" content="王文波">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <script src="/assets/javascripts/jquery-1.7.2.min.js"></script>
+    <script src="/assets/javascripts/back-to-top.js"></script>
+    <script src="/assets/javascripts/search.js"></script>
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="searchbar box-shadow">
+      <div class="welcome">欢迎来到“波”的世界</div>
+      <div class="search-btn"><a href="" target="_blank" id="search-btn">SEARCH</a></div>
+      <div class="search-text"><input id="search-text" type="text" placeHolder="Search..." /></div>
+      <div class="clear"> </div>
+    </div>
+
+    <div class="navbar">
+      <div class="logo box-shadow">
+        <!--<h4>欢迎来到“波”的世界</h4>-->
+        <a class="brand" href="/">Pudgecon</a>
+      </div>
+      <ul>
+        <li><a href="/index.html"><h3>首页</h3><p>Home</p></a></li>
+        <li><a href="/categories.html"><h3>分类</h3><p>Categories</p></a></li>
+        <li><a href="/tags.html"><h3>标签</h3><p>Tags</p></a></li>
+        <li><a href="/archive.html"><h3>归档</h3><p>Archive</p></a></li>
+        <li><a href="/contact.html"><h3>联系我</h3><p>Contact</p></a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+
+    <div class="container">
+      <!--<div class="content">-->
+        
+<div class="page-header border-radius box-shadow">
+  <h1>关于github禁止使用jekyll插件的一个解决方案</h1>
+</div>
+
+<div class="row">
+  <div class="span8 post-content border-radius box-shadow">
+    <p><a href='http://jekyllbootstrap.com/'>jekyll</a>博客模板虽然不错，但是总是会缺少一些我们想要的东西，比如说，标签云（tag_cloud）。解决方法，当然是自己写plugin，又或者到网上搜一些开源的plugin。</p>
+
+<p>但是，本地运行的好好的插件，上传到Github上之后，会发现出现了plugin不起作用，或者直接就报错了。原因是因为<strong><em>Github默认不允许使用外部插件（GitHub doesn&#8217;t allow Jekyll plugins）</em></strong>。</p>
+
+<p>本文提到的解决方案主要是参考<a href='http://charliepark.org/jekyll-with-plugins/'>这篇博文</a>改的。因为有些地方不一样，因此我再贴出来。</p>
+
+<p>方案的主要思想就是维护两个文件夹，一个放博客的项目文件，包括包括的jekyll模板文件，plugins文件，markdown文件，以及<code>_site</code>文件夹。_site文件夹下是存放jekyll为我们生成的整个网站的静态页面，同时在.gitignore中将_site整个文件夹ignore掉了。因此，这个文件夹是不会上传到我们的github上的repository的。</p>
+
+<p>方案提出，使用另外一个文件夹存放我们的_site里面的内容，然后在里面维护一个git版本，直接上传整个静态网站到你的username.github.com上，同时添加<code>.nojekyll</code>文件（_site文件夹下已包含CNAME）。这样，github就会默认不使用jekyll的解析方式，直接采用静态网页解析方式。</p>
+
+<p>这个方案是可以成功的。</p>
+
+<p>但是后来文章提到的编写脚本来完成整个静态网站的commit与push，但是文章中提到的方法与当前的Ubuntu版本似乎不是相符，因此需要稍微更改一下。</p>
+
+<p>我的Ubuntu版本为X64 12.04 LTS。并没有<code>.bash_profile</code>文件。因此我们需要的是在<code>.bashrc</code>文件中设置编写相应的脚本。（若像我使用ZSH的话，则需要在<code>.zshrc</code>文件中编写。）</p>
+
+<p>原文采用</p>
+
+<pre><code>alias build_blog=&quot;cd ~/applications/charliepark.github.com.raw;jekyll;cp -r ~/applications/charliepark.github.com.raw/_site/* ~/applications/charliepark.github.com;cd ~/applications/charliepark.github.com;git add .;git commit -am &#39;Latest build.&#39;;git push&quot;
+alias bb=&quot;build_blog&quot;</code></pre>
+
+<p>但是当执行到jekyll命令的时候，终端是不会往下执行，因为貌似jekyll sleep了，具体原因我没有深究（我的jekyll版本为0.11.2）。因此我们需要将脚本稍作修改。</p>
+
+<pre><code>alias build_blog=&quot;cp -r ~/workspace/pudgecon.github.com/_site/* ~/workspace/www.wangwenbo.cn;cd ~/workspace/www.wangwenbo.cn;git add .;git commit -m &quot;Latest build&quot;;git push origin master&quot;
+alias bb=&quot;build_blog&quot;</code></pre>
+
+<p>去掉进去项目文件夹执行jekyll命令的步骤，因为当我们编写博文的时候，jekyll已经会为我们重新生成文件了，因此个人觉得这步可以省略了。当然不放心的时候可以重新生成一次。</p>
+
+<p>之前采用<code>git</code>的<code>submodule</code>方法试过，但是jekyll生成_site之前，将_site里面的全部内容删除了，因此每次都没成功，也可以我之前的方法出错了，因为我对submodule也没完全清楚。呵呵。</p>
+
+<p>日后成功了再分享。</p>
+
+<p>转载请注明出处：<a href='www.王文波.cn/2012/08/30/first-post---github'>www.王文波.cn</a></p>
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/others/2012/08/30/first-post---github" title="First Post   使用个性中文域名绑定GitHub博客">&larr; 上一篇 Previous</a></li>
+      
+        <li><a href="/archive.html">归档 Archive</a></li>
+      
+        <li class="next disabled"><a>下一篇 Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'bob-wang-china'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4 post-info border-radius box-shadow">
+    <h4>发表于 Published：</h4>
+    <div class="date"><span>2012年09月02日(02 September 2012)</span></div>
+
+  
+    <h4>标签 Tags：</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#jekyll-plugins-ref">jekyll-plugins <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      <!--</div>-->
+
+      <footer>
+        <p>&copy; 王文波 2012 <a href="http://pudgecon@gmail.com">pudgecon@gmail.com</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+    <!-- back to top div -->
+    <div id="toTop" class="back-to-top">^ Back to Top</div>
+
+    
+  </body>
+</html>
+

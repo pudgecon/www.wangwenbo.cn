@@ -7,4 +7,5 @@ http://www.王文波.cn/atom.xml
 http://www.王文波.cn/sitemap.txt
 http://www.王文波.cn/tags.html
 
+http://www.王文波.cn/jekyll/2012/09/02/one-solution-for-inhibit-jekyll-plugins-on-github
 http://www.王文波.cn/others/2012/08/30/first-post---github
