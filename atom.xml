@@ -4,7 +4,7 @@
  <title>Pudgecon</title>
  <link href="http://www.王文波.cn/atom.xml" rel="self"/>
  <link href="http://www.王文波.cn"/>
- <updated>2012-09-02T15:30:42+08:00</updated>
+ <updated>2012-09-03T19:15:54+08:00</updated>
  <id>http://www.王文波.cn</id>
  <author>
    <name>王文波</name>
@@ -34,15 +34,17 @@
 &lt;p&gt;我的Ubuntu版本为X64 12.04 LTS。并没有&lt;code&gt;.bash_profile&lt;/code&gt;文件。因此我们需要的是在&lt;code&gt;.bashrc&lt;/code&gt;文件中设置编写相应的脚本。（若像我使用ZSH的话，则需要在&lt;code&gt;.zshrc&lt;/code&gt;文件中编写。）&lt;/p&gt;
 
 &lt;p&gt;原文采用&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    &lt;span class='nb'&gt;alias &lt;/span&gt;&lt;span class='nv'&gt;build_blog&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;cd ~/applications/charliepark.github.com.raw;jekyll;cp -r ~/applications/charliepark.github.com.raw/_site/* ~/applications/charliepark.github.com;cd ~/applications/charliepark.github.com;git add .;git commit -am &amp;#39;Latest build.&amp;#39;;git push&amp;quot;&lt;/span&gt;
 
-&lt;pre&gt;&lt;code&gt;alias build_blog=&amp;quot;cd ~/applications/charliepark.github.com.raw;jekyll;cp -r ~/applications/charliepark.github.com.raw/_site/* ~/applications/charliepark.github.com;cd ~/applications/charliepark.github.com;git add .;git commit -am &amp;#39;Latest build.&amp;#39;;git push&amp;quot;
-alias bb=&amp;quot;build_blog&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-
+    &lt;span class='nb'&gt;alias &lt;/span&gt;&lt;span class='nv'&gt;bb&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;build_blog&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;但是当执行到jekyll命令的时候，终端是不会往下执行，因为貌似jekyll sleep了，具体原因我没有深究（我的jekyll版本为0.11.2）。因此我们需要将脚本稍作修改。&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;    &lt;span class='nb'&gt;alias &lt;/span&gt;&lt;span class='nv'&gt;build_blog&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;cp -r ~/workspace/pudgecon.github.com/_site/* ~/workspace/www.wangwenbo.cn;cd ~/workspace/www.wangwenbo.cn;git add .;git commit -m &amp;#39;Latest build&amp;#39;;git push origin master&amp;quot;&lt;/span&gt;
 
-&lt;pre&gt;&lt;code&gt;alias build_blog=&amp;quot;cp -r ~/workspace/pudgecon.github.com/_site/* ~/workspace/www.wangwenbo.cn;cd ~/workspace/www.wangwenbo.cn;git add .;git commit -m &amp;quot;Latest build&amp;quot;;git push origin master&amp;quot;
-alias bb=&amp;quot;build_blog&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-
+    &lt;span class='nb'&gt;alias &lt;/span&gt;&lt;span class='nv'&gt;bb&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;build_blog&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;去掉进去项目文件夹执行jekyll命令的步骤，因为当我们编写博文的时候，jekyll已经会为我们重新生成文件了，因此个人觉得这步可以省略了。当然不放心的时候可以重新生成一次。&lt;/p&gt;
 
 &lt;p&gt;之前采用&lt;code&gt;git&lt;/code&gt;的&lt;code&gt;submodule&lt;/code&gt;方法试过，但是jekyll生成_site之前，将_site里面的全部内容删除了，因此每次都没成功，也可以我之前的方法出错了，因为我对submodule也没完全清楚。呵呵。&lt;/p&gt;
@@ -61,7 +63,7 @@ alias bb=&amp;quot;build_blog&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;这个过程碰到许多问题，在此写下来与大家分享。&lt;/p&gt;
 
-&lt;h2 id='id13'&gt;首先注册域名的过程&lt;/h2&gt;
+&lt;h2 id='id70'&gt;首先注册域名的过程&lt;/h2&gt;
 
 &lt;p&gt;这个过程相对简单，&lt;a href='http://www.net.cn'&gt;中国万网&lt;/a&gt;的姓名域名8元/年，其实不算贵，买多少年随意。&lt;/p&gt;
 
@@ -96,7 +98,7 @@ dns22.hichina.com&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;DNS设置好后，需要一点时间才能生效，但是不用万网说的48小时这么多。&lt;/p&gt;
 
-&lt;h2 id='id14'&gt;设置域名解析&lt;/h2&gt;
+&lt;h2 id='id71'&gt;设置域名解析&lt;/h2&gt;
 
 &lt;p&gt;万网的&lt;code&gt;域名管理&lt;/code&gt;里有&lt;code&gt;域名解析&lt;/code&gt;的功能，选择好域名后，点击域名解析。如果你提交的资料审核通过后，就可以进行域名解析。&lt;/p&gt;
 
@@ -122,7 +124,7 @@ IP地址：207.97.227.245&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;以上两种方式，我都经过测试，都可以成功，当然，CNAME文件中的内容要与&lt;code&gt;记录名（RR）&lt;/code&gt;相同。&lt;/p&gt;
 
-&lt;h3 id='id15'&gt;现在问题来了&lt;/h3&gt;
+&lt;h3 id='id72'&gt;现在问题来了&lt;/h3&gt;
 
 &lt;p&gt;完成到这里我觉得已经完成了我的域名绑定了。但是实际上，当我访问我的域名(www.王文波.中国)的时候，并不能跳转到我的博客主页，而是跳到了Github的&lt;a href='http://207.97.227.245'&gt;404页面&lt;/a&gt;。&lt;/p&gt;
 
