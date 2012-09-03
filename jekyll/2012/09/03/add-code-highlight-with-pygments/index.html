@@ -82,9 +82,9 @@
 </div>
 <p>很明显的，第二种方式更加美观，也更加直观，更容易让人一目了然。实现方法其实也比较简单，下面一步一步讲到。</p>
 
-<p>博客模板为jekyll，托管平台为Github。</p>
+<p>博客模板为<a href='http://jekyllbootstrap.com/'>jekyll</a>，托管平台为<a href='http://www.github.com'>Github</a>。</p>
 
-<p>首先安装pygments。</p>
+<p>首先安装<a href='http://pygments.org/'>pygments</a>。</p>
 
 <p>个人使用Ubuntu 12.04 LTS X86。安装方法：</p>
 <div class='highlight'><pre><code class='bash'>sudo apt-get install python-pygments
@@ -94,11 +94,11 @@
 <div class='highlight'><pre><code class='bash'>pygmentize -S default -f html &gt; pygments.css
 </code></pre>
 </div>
-<p>此时会在当前目录下生成一个名为pygments.css的样式文件。</p>
+<p>此时会在当前目录下生成一个名为<code>pygments.css</code>的样式文件。</p>
 
-<p>将此样式文件拷贝到博客项目的样式目录下，同时在修改模板，添加样式引用（&#60;link&#62;）。</p>
+<p>将此样式文件拷贝到博客项目的<code>样式目录</code>下，同时在修改<code>模板</code>，添加样式引用（&#60;link&#62;）。</p>
 
-<p>markdown文件中，将需要高亮显示的代码段修改为：</p>
+<p><code>markdown</code>文件中，将需要高亮显示的代码段修改为：</p>
 <pre><code>&#123;% highlight java linenos %&#125;
 class Test {
   public static void main(String[] args) {
@@ -106,6 +106,8 @@ class Test {
   }
 }
 &#123;% endhighlight %&#125;</code></pre>
+<p>其中，java为语言各类，linenos为显示行数。</p>
+
 <p>这样子就OK了。</p>
 
 <p>具体文档请参考：<a href='http://pygments.org/docs/quickstart/'>http://pygments.org/docs/quickstart/</a></p>
