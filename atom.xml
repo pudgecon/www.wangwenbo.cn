@@ -4,13 +4,69 @@
  <title>Pudgecon</title>
  <link href="http://www.王文波.cn/atom.xml" rel="self"/>
  <link href="http://www.王文波.cn"/>
- <updated>2012-09-03T19:15:54+08:00</updated>
+ <updated>2012-09-03T20:30:08+08:00</updated>
  <id>http://www.王文波.cn</id>
  <author>
    <name>王文波</name>
    <email>pudgecon@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>使用pygments为代码块添加语法高亮</title>
+   <link href="http://www.王文波.cn/jekyll/2012/09/03/add-code-highlight-with-pygments"/>
+   <updated>2012-09-03T00:00:00+08:00</updated>
+   <id>http://www.王文波.cn/jekyll/2012/09/03/add-code-highlight-with-pygments</id>
+   <content type="html">&lt;p&gt;比较如下代码块：&lt;/p&gt;
+
+&lt;p&gt;一、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class Test {
+  public static void main(String[] args) {
+    return null;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;二、&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='lineno'&gt;1&lt;/span&gt;   &lt;span class='kd'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Test&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt;2&lt;/span&gt;     &lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='kd'&gt;static&lt;/span&gt; &lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;main&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;String&lt;/span&gt;&lt;span class='o'&gt;[]&lt;/span&gt; &lt;span class='n'&gt;args&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+&lt;span class='lineno'&gt;3&lt;/span&gt;       &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='kc'&gt;null&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+&lt;span class='lineno'&gt;4&lt;/span&gt;     &lt;span class='o'&gt;}&lt;/span&gt;
+&lt;span class='lineno'&gt;5&lt;/span&gt;   &lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;很明显的，第二种方式更加美观，也更加直观，更容易让人一目了然。实现方法其实也比较简单，下面一步一步讲到。&lt;/p&gt;
+
+&lt;p&gt;博客模板为jekyll，托管平台为Github。&lt;/p&gt;
+
+&lt;p&gt;首先安装pygments。&lt;/p&gt;
+
+&lt;p&gt;个人使用Ubuntu 12.04 LTS X86。安装方法：&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;sudo apt-get install python-pygments
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;安装完成，输入：&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;pygmentize -S default -f html &amp;gt; pygments.css
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;此时会在当前目录下生成一个名为pygments.css的样式文件。&lt;/p&gt;
+
+&lt;p&gt;将此样式文件拷贝到博客项目的样式目录下，同时在修改模板，添加样式引用（&amp;#60;link&amp;#62;）。&lt;/p&gt;
+
+&lt;p&gt;markdown文件中，将需要高亮显示的代码段修改为：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;#123;% highlight java linenos %&amp;#125;
+class Test {
+  public static void main(String[] args) {
+    return null;
+  }
+}
+&amp;#123;% endhighlight %&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样子就OK了。&lt;/p&gt;
+
+&lt;p&gt;具体文档请参考：&lt;a href='http://pygments.org/docs/quickstart/'&gt;http://pygments.org/docs/quickstart/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;转载请注明出处：&lt;a href='http://www.王文波.cn/jekyll/2012/09/03/add-code-highlight-with-pygments/'&gt;www.王文波.cn&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>关于github禁止使用jekyll插件的一个解决方案</title>
@@ -63,7 +119,7 @@
 
 &lt;p&gt;这个过程碰到许多问题，在此写下来与大家分享。&lt;/p&gt;
 
-&lt;h2 id='id70'&gt;首先注册域名的过程&lt;/h2&gt;
+&lt;h2 id='id94'&gt;首先注册域名的过程&lt;/h2&gt;
 
 &lt;p&gt;这个过程相对简单，&lt;a href='http://www.net.cn'&gt;中国万网&lt;/a&gt;的姓名域名8元/年，其实不算贵，买多少年随意。&lt;/p&gt;
 
@@ -98,7 +154,7 @@ dns22.hichina.com&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;DNS设置好后，需要一点时间才能生效，但是不用万网说的48小时这么多。&lt;/p&gt;
 
-&lt;h2 id='id71'&gt;设置域名解析&lt;/h2&gt;
+&lt;h2 id='id95'&gt;设置域名解析&lt;/h2&gt;
 
 &lt;p&gt;万网的&lt;code&gt;域名管理&lt;/code&gt;里有&lt;code&gt;域名解析&lt;/code&gt;的功能，选择好域名后，点击域名解析。如果你提交的资料审核通过后，就可以进行域名解析。&lt;/p&gt;
 
@@ -124,7 +180,7 @@ IP地址：207.97.227.245&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;以上两种方式，我都经过测试，都可以成功，当然，CNAME文件中的内容要与&lt;code&gt;记录名（RR）&lt;/code&gt;相同。&lt;/p&gt;
 
-&lt;h3 id='id72'&gt;现在问题来了&lt;/h3&gt;
+&lt;h3 id='id96'&gt;现在问题来了&lt;/h3&gt;
 
 &lt;p&gt;完成到这里我觉得已经完成了我的域名绑定了。但是实际上，当我访问我的域名(www.王文波.中国)的时候，并不能跳转到我的博客主页，而是跳到了Github的&lt;a href='http://207.97.227.245'&gt;404页面&lt;/a&gt;。&lt;/p&gt;
 
