@@ -73,13 +73,7 @@
 }</code></pre>
 
 <p>二、</p>
-<div class='highlight'><pre><code class='java'><span class='lineno'>1</span>   <span class='kd'>class</span> <span class='nc'>Test</span> <span class='o'>{</span>
-<span class='lineno'>2</span>     <span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>void</span> <span class='nf'>main</span><span class='o'>(</span><span class='n'>String</span><span class='o'>[]</span> <span class='n'>args</span><span class='o'>)</span> <span class='o'>{</span>
-<span class='lineno'>3</span>       <span class='k'>return</span> <span class='kc'>null</span><span class='o'>;</span>
-<span class='lineno'>4</span>     <span class='o'>}</span>
-<span class='lineno'>5</span>   <span class='o'>}</span>
-</code></pre>
-</div>
+
 <p>很明显的，第二种方式更加美观，也更加直观，更容易让人一目了然。实现方法其实也比较简单，下面一步一步讲到。</p>
 
 <p>博客模板为<a href='http://jekyllbootstrap.com/'>jekyll</a>，托管平台为<a href='http://www.github.com'>Github</a>。</p>
@@ -87,13 +81,9 @@
 <p>首先安装<a href='http://pygments.org/'>pygments</a>。</p>
 
 <p>个人使用Ubuntu 12.04 LTS X86。安装方法：</p>
-<div class='highlight'><pre><code class='bash'>sudo apt-get install python-pygments
-</code></pre>
-</div>
+
 <p>安装完成，输入：</p>
-<div class='highlight'><pre><code class='bash'>pygmentize -S default -f html &gt; pygments.css
-</code></pre>
-</div>
+
 <p>此时会在当前目录下生成一个名为<code>pygments.css</code>的样式文件。</p>
 
 <p>将此样式文件拷贝到博客项目的<code>样式目录</code>下，同时在修改<code>模板</code>，添加样式引用（&#60;link&#62;）。</p>
@@ -188,7 +178,6 @@ class Test {
     <!-- back to top div -->
     <div id="toTop" class="back-to-top">^ Back to Top</div>
 
-    <div class="analytics"><script language="javascript" src="http://count1.51yes.com/click.aspx?id=17156288&logo=1" charset="gb2312"></script></div>
     
   </body>
 </html>

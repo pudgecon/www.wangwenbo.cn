@@ -79,17 +79,9 @@
 <p>我的Ubuntu版本为X64 12.04 LTS。并没有<code>.bash_profile</code>文件。因此我们需要的是在<code>.bashrc</code>文件中设置编写相应的脚本。（若像我使用ZSH的话，则需要在<code>.zshrc</code>文件中编写。）</p>
 
 <p>原文采用</p>
-<div class='highlight'><pre><code class='bash'>    <span class='nb'>alias </span><span class='nv'>build_blog</span><span class='o'>=</span><span class='s2'>&quot;cd ~/applications/charliepark.github.com.raw;jekyll;cp -r ~/applications/charliepark.github.com.raw/_site/* ~/applications/charliepark.github.com;cd ~/applications/charliepark.github.com;git add .;git commit -am &#39;Latest build.&#39;;git push&quot;</span>
 
-    <span class='nb'>alias </span><span class='nv'>bb</span><span class='o'>=</span><span class='s2'>&quot;build_blog&quot;</span>
-</code></pre>
-</div>
 <p>但是当执行到jekyll命令的时候，终端是不会往下执行，因为貌似jekyll sleep了，具体原因我没有深究（我的jekyll版本为0.11.2）。因此我们需要将脚本稍作修改。</p>
-<div class='highlight'><pre><code class='bash'>    <span class='nb'>alias </span><span class='nv'>build_blog</span><span class='o'>=</span><span class='s2'>&quot;cp -r ~/workspace/pudgecon.github.com/_site/* ~/workspace/www.wangwenbo.cn;cd ~/workspace/www.wangwenbo.cn;git add .;git commit -m &#39;Latest build&#39;;git push origin master&quot;</span>
 
-    <span class='nb'>alias </span><span class='nv'>bb</span><span class='o'>=</span><span class='s2'>&quot;build_blog&quot;</span>
-</code></pre>
-</div>
 <p>去掉进去项目文件夹执行jekyll命令的步骤，因为当我们编写博文的时候，jekyll已经会为我们重新生成文件了，因此个人觉得这步可以省略了。当然不放心的时候可以重新生成一次。</p>
 
 <p>之前采用<code>git</code>的<code>submodule</code>方法试过，但是jekyll生成_site之前，将_site里面的全部内容删除了，因此每次都没成功，也可以我之前的方法出错了，因为我对submodule也没完全清楚。呵呵。</p>
@@ -170,7 +162,6 @@
     <!-- back to top div -->
     <div id="toTop" class="back-to-top">^ Back to Top</div>
 
-    <div class="analytics"><script language="javascript" src="http://count1.51yes.com/click.aspx?id=17156288&logo=1" charset="gb2312"></script></div>
     
   </body>
 </html>

@@ -1,11 +1,11 @@
 
-http://www.王文波.cn/categories.html
-http://www.王文波.cn/index.html
-http://www.王文波.cn/archive.html
-http://www.王文波.cn/pages.html
 http://www.王文波.cn/atom.xml
-http://www.王文波.cn/sitemap.txt
+http://www.王文波.cn/pages.html
 http://www.王文波.cn/tags.html
+http://www.王文波.cn/categories.html
+http://www.王文波.cn/sitemap.txt
+http://www.王文波.cn/archive.html
+http://www.王文波.cn/index.html
 
 http://www.王文波.cn/jekyll/2012/09/03/add-code-highlight-with-pygments
 http://www.王文波.cn/jekyll/2012/09/02/one-solution-for-inhibit-jekyll-plugins-on-github
