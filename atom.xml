@@ -4,7 +4,7 @@
  <title>Pudgecon</title>
  <link href="http://www.王文波.cn/atom.xml" rel="self"/>
  <link href="http://www.王文波.cn"/>
- <updated>2012-09-05T13:56:51+08:00</updated>
+ <updated>2012-09-05T14:25:02+08:00</updated>
  <id>http://www.王文波.cn</id>
  <author>
    <name>王文波</name>
@@ -103,7 +103,7 @@ class Test {
 
 &lt;p&gt;这个过程碰到许多问题，在此写下来与大家分享。&lt;/p&gt;
 
-&lt;h2 id='id1'&gt;首先注册域名的过程&lt;/h2&gt;
+&lt;h2 id='id4'&gt;首先注册域名的过程&lt;/h2&gt;
 
 &lt;p&gt;这个过程相对简单，&lt;a href='http://www.net.cn'&gt;中国万网&lt;/a&gt;的姓名域名8元/年，其实不算贵，买多少年随意。&lt;/p&gt;
 
@@ -138,7 +138,7 @@ dns22.hichina.com&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;DNS设置好后，需要一点时间才能生效，但是不用万网说的48小时这么多。&lt;/p&gt;
 
-&lt;h2 id='id2'&gt;设置域名解析&lt;/h2&gt;
+&lt;h2 id='id5'&gt;设置域名解析&lt;/h2&gt;
 
 &lt;p&gt;万网的&lt;code&gt;域名管理&lt;/code&gt;里有&lt;code&gt;域名解析&lt;/code&gt;的功能，选择好域名后，点击域名解析。如果你提交的资料审核通过后，就可以进行域名解析。&lt;/p&gt;
 
@@ -164,7 +164,7 @@ IP地址：207.97.227.245&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;以上两种方式，我都经过测试，都可以成功，当然，CNAME文件中的内容要与&lt;code&gt;记录名（RR）&lt;/code&gt;相同。&lt;/p&gt;
 
-&lt;h3 id='id3'&gt;现在问题来了&lt;/h3&gt;
+&lt;h3 id='id6'&gt;现在问题来了&lt;/h3&gt;
 
 &lt;p&gt;完成到这里我觉得已经完成了我的域名绑定了。但是实际上，当我访问我的域名(www.王文波.中国)的时候，并不能跳转到我的博客主页，而是跳到了Github的&lt;a href='http://207.97.227.245'&gt;404页面&lt;/a&gt;。&lt;/p&gt;
 
